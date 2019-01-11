@@ -1,0 +1,52 @@
+#!/usr/bin/env php
+<?php
+/**
+ * User: yk
+ * Date: 19-1-10
+ * Time: 2:38 pm
+ */
+
+defined('YB_DEBUG') or define('YB_DEBUG', true);
+
+include ( __DIR__ . '/vendor/autoload.php');
+
+try{
+    $capsule = new Illuminate\Database\Capsule\Manager();
+    $allDbs = require( __DIR__ . '/config/dbConfig.php' );
+    foreach ($allDbs as $name => $db) {
+        $capsule->addConnection($db, $name);
+    }
+    $capsule->bootEloquent();
+
+    $appInfo = [
+        'name' => 'YB Console App',
+        'version' => '1.0.0',
+    ];
+
+    $app = new \Inhere\Console\Application($appInfo);
+
+    //register closure
+    include ( __DIR__ . '/console/closureFiles/allClosure.php');
+
+    //register command
+    $commandNamespace = include (__DIR__ . '/config/command.php');
+    foreach ($commandNamespace as $childName) {
+        $app->registerCommands('app\\commands\\' . $childName, __DIR__ . '/console/commands/' . $childName);
+    }
+
+    //register controller
+    $groupsNamespace = include (__DIR__ . '/config/groups.php');
+    foreach ($groupsNamespace as $childName) {
+        $app->registerGroups('app\\controllers\\' . $childName, __DIR__ . '/console/controllers/' . $childName);
+    }
+
+    $app->run();
+}catch (\Exception $e) {
+    //out error message
+    if(YB_DEBUG === true) {
+        echo outError($e);
+    }
+}
+
+
+

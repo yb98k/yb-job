@@ -1,0 +1,17 @@
+{
+  "name": "yb-job",
+  "version": "1.0.0",
+  "require": {
+    "inhere/console": "^3.0",
+    "illuminate/database": "^5.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\" : "console//",
+      "model\\" : "models//"
+    },
+    "files": [
+      "helpers/functions.php"
+    ]
+  }
+}

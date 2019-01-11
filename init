@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+/**
+ * User: yk
+ * Date: 19-1-11
+ * Time: 5:53 pm
+ */
+
+$txt = '#!/bin/sh' . PHP_EOL . 'PROPATH=' . __DIR__ . PHP_EOL;
+$filename = __DIR__ . '/server/core/yb.sh';
+file_put_contents($filename, $txt . file_get_contents($filename), 0);

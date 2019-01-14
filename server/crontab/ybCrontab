@@ -1,11 +1,2 @@
-# * * * * * command
-# | | | | |    |
-# | | | | |    |
-# | | | | |    |_ _ _ _ 命令
-# | | | | |_ _ _ _ _ _ _  周
-# | | | |_ _ _ _ _ _ _ _  月
-# | | |_ _ _ _ _ _ _ _ _  日
-# | |_ _ _ _ _ _ _ _ _ _  时
-# |_ _ _ _ _ _ _ _ _ _ _  分
 
-# */1 * * * * echo 'test' >> /usr/local/nginx/html/test.txt
+*/1 * * * * php /usr/local/nginx/html/yb-job/ybTask demo

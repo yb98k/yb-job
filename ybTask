@@ -11,34 +11,25 @@ defined('YB_DEBUG') or define('YB_DEBUG', true);
 include ( __DIR__ . '/vendor/autoload.php');
 
 try{
+    include ( __DIR__ . '/server/entry.php' );
+
     $capsule = new Illuminate\Database\Capsule\Manager();
-    $allDbs = require( __DIR__ . '/config/dbConfig.php' );
-    foreach ($allDbs as $name => $db) {
-        $capsule->addConnection($db, $name);
-    }
+    include ( __DIR__ . '/config/dbConfig.php' );
     $capsule->bootEloquent();
 
-    $appInfo = [
+    $app = new \Inhere\Console\Application([
         'name' => 'YB Console App',
         'version' => '1.0.0',
-    ];
-
-    $app = new \Inhere\Console\Application($appInfo);
+    ]);
 
     //register closure
-    include ( __DIR__ . '/console/closureFiles/allClosure.php');
+    include ( __DIR__ . '/console/closureFiles/allClosure.php' );
 
     //register command
-    $commandNamespace = include (__DIR__ . '/config/command.php');
-    foreach ($commandNamespace as $childName) {
-        $app->registerCommands('app\\commands\\' . $childName, __DIR__ . '/console/commands/' . $childName);
-    }
+    include ( __DIR__ . '/config/command.php' );
 
     //register controller
-    $groupsNamespace = include (__DIR__ . '/config/groups.php');
-    foreach ($groupsNamespace as $childName) {
-        $app->registerGroups('app\\controllers\\' . $childName, __DIR__ . '/console/controllers/' . $childName);
-    }
+    include ( __DIR__ . '/config/groups.php' );
 
     $app->run();
 }catch (\Exception $e) {

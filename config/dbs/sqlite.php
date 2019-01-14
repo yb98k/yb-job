@@ -5,10 +5,13 @@
  * Time: 5:11 pm
  */
 
-return [
-//    'sqlite_01' => [
-//        'driver' => 'sqlite',
-//        'database' => ':memory:',
-//        'prefix' => '',
-//    ]
-];
+/*
+ * var $capsule Illuminate\Database\Capsule\Manager
+ * can config multiple configure
+ */
+
+$capsule->addConnection([
+    'driver' => 'sqlite',
+    'database' => ':memory:',
+    'prefix' => '',
+], 'sqlite_01');

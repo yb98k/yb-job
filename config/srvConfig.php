@@ -8,8 +8,9 @@
 return [
     'host' => '127.0.0.0',
     'port' => 9501,
+    'root' => '/usr/local/nginx/html/yb-job',
     'setting' => [
-        'worker_num' => 4,
+        'worker_num' => 1,
         'daemonize' => false, //是否以后台进程运行
         'backlog' => 128,
     ]

@@ -13,22 +13,20 @@ return [
         //      'm',  -- 按照分钟执行
         //      'H',  -- 按照小时执行
         //      'D',  -- 按照天执行
-        //      'M',  -- 按照月执行
-        //      'Y'   -- 按照年执行
         //      'F'   -- 按照固定时间执行
         // ]
         //timespan: -- support [
         //      -- 固定大于零的数字 1、2、3...
         //      -- 固定的时间字符串 '2019-01-01'、'2019-01-01 08:00:00'
         //]
-        //taskWay: --support [ 'crontab', 'swoole' ]
-        'site:test' => ['format' => '', 'timespan' => '', 'taskWay' => 'crontab']
+        'site:test' => ['format' => 's', 'timespan' => 5],
     ],
     'crontab' => [
-        'demo' => '*/1 * * * *'
+        'demo' => '*/1 * * * *',
     ],
     'nohup' => [
         // stdout: -- 输出重定向文件名称 ！！！注意：只需要给出名称，文件都会默认存放在路径logs/stdout中
-        'demo' => ['stdout' => '']
+        'site:test' => ['stdout' => ''],
+        'demo' => ['stdout' => ''],
     ]
 ];

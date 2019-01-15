@@ -1,4 +1,4 @@
 /vendor
 *.log
 ybCrontab
-nohup.pid
+*.pid

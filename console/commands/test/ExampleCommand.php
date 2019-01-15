@@ -11,7 +11,7 @@ use Inhere\Console\Command;
 use Inhere\Console\IO\Input;
 use Inhere\Console\IO\Output;
 
-class ExampleController extends Command
+class ExampleCommand extends Command
 {
     protected static $name = 'example';
 

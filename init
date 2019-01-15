@@ -19,8 +19,8 @@ if(file_exists($srvConfig)) {
 $logPath = __DIR__ . '/logs';
 if(!is_dir($logPath)) {
     mkdir($logPath, 0777, true);
-} else {
-    if(!is_dir($logPath . '/stdout')) {
-        mkdir($logPath . '/stdout', 0777, true);
-    }
+}
+
+if(!is_dir($logPath . '/stdout')) {
+    mkdir($logPath . '/stdout', 0777, true);
 }

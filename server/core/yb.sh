@@ -1,5 +1,3 @@
-#!/bin/sh
-PROPATH=/usr/local/nginx/html/yb-job
 THISPATH=${PROPATH}/logs
 INTERVAL=2
 nohup php ${PROPATH}/server/core/ybServer.php >>${THISPATH}/server_script.log 2>&1 & echo $! > ${THISPATH}/server_script.pid

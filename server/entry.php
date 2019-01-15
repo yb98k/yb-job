@@ -9,23 +9,15 @@ $extraCommand = getopt('p:')['p'] ?? '';
 
 if($extraCommand == 'start') {
     $shell = __DIR__ . '/core/yb.sh';
+    $stdout = __DIR__ . '/../logs/stdout/yb.log';
 
-    $res = system('nohup sh ' . $shell . ' 2>&1 &');
-    var_dump($res);
+    $res = system('nohup sh ' . $shell . ' >> ' . $stdout . ' 2>&1 &');
     exit;
 }
 
 if($extraCommand == 'stop') {
-    $startShell = __DIR__ . '/core/yb.sh';
     $shell = __DIR__ . '/core/ybStop.sh';
-    $shellContent = file_get_contents($startShell);
     $res = system('sh ' . $shell);
-    unlink($startShell);
-    sleep(6);
-    if(!$res) {
-        echo 'Stop Success';
-    }
-    file_put_contents($startShell, $shellContent);
     exit;
 }
 
@@ -38,7 +30,7 @@ if($extraCommand == 'flash') {
         while (!feof($fh)) {
             $pid = str_replace(PHP_EOL, '', fgets($fh));
             if(is_numeric($pid)) {
-                system('sudo kill -9 ' . $pid);
+                system('kill -9 ' . $pid);
             }
         }
 

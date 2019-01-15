@@ -96,6 +96,7 @@ class ybServer
                 }
             }
 
+            $shellCommand = strpos($shellCommand, '*') === false ? '' : $shellCommand;
             file_put_contents($ybCronFile, $allCron . $shellCommand);
             system('crontab ' . $ybCronFile);
         }

@@ -1,2 +1,4 @@
 /vendor
-logs/
+*.log
+ybCrontab
+nohup.pid

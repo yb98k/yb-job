@@ -5,7 +5,7 @@
  * Time: 2:58 pm
  */
 
-$app->command('demo', function (\Inhere\Console\IO\Input $in, \Inhere\Console\IO\Output $out) {
+$console->command('demo', function (\Inhere\Console\IO\Input $in, \Inhere\Console\IO\Output $out) {
     $cmd = $in->getCommand();
 
     $out->info('hello, this is a test command: ' . $cmd);

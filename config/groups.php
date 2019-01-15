@@ -6,6 +6,4 @@
  */
 
 //register namespace:site
-$app->registerGroups('app\\controllers\\site', __DIR__ . '/../console/controllers/site');
-
-
+$console->registerGroups('app\\controllers\\site', __DIR__ . '/../console/controllers/site');

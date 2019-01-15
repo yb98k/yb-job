@@ -9,3 +9,18 @@
 $txt = '#!/bin/sh' . PHP_EOL . 'PROPATH=' . __DIR__ . PHP_EOL;
 $filename = __DIR__ . '/server/core/yb.sh';
 file_put_contents($filename, $txt . file_get_contents($filename), 0);
+
+$srvConfig = __DIR__ . '/config/srvConfig.php';
+if(file_exists($srvConfig)) {
+    $content = strtr(file_get_contents($srvConfig), ['{YB_ROOT}' => __DIR__]);
+    file_put_contents($srvConfig, $content);
+}
+
+$logPath = __DIR__ . '/logs';
+if(!is_dir($logPath)) {
+    mkdir($logPath, 0777, true);
+} else {
+    if(!is_dir($logPath . '/stdout')) {
+        mkdir($logPath . '/stdout', 0777, true);
+    }
+}

@@ -6,4 +6,4 @@
  */
 
 //register namespace:test
-$app->registerCommands('app\\commands\\test', __DIR__ . '/../console/commands/test');
+$console->registerCommands('app\\commands\\test', __DIR__ . '/../console/commands/test');

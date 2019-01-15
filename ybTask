@@ -12,13 +12,15 @@ include ( __DIR__ . '/vendor/autoload.php');
 
 try{
     include ( __DIR__ . '/server/entry.php' );
+    $appData = include ( __DIR__ . '/bootstrap/app.php' );
+    $app = new \sap\App($appData);
 
     $capsule = new Illuminate\Database\Capsule\Manager();
     include ( __DIR__ . '/config/dbConfig.php' );
     $capsule->bootEloquent();
 
-    $app = new \Inhere\Console\Application([
-        'name' => 'YB Console App',
+    $console = new \Inhere\Console\Application([
+        'name' => 'YB-JOB-APP',
         'version' => '1.0.0',
     ]);
 
@@ -31,11 +33,11 @@ try{
     //register controller
     include ( __DIR__ . '/config/groups.php' );
 
-    $app->run();
+    $console->run();
 }catch (\Exception $e) {
     //out error message
     if(YB_DEBUG === true) {
-        echo outError($e);
+        fwrite(STDOUT, outError($e));
     }
 }
 

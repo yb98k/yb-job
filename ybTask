@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+/**
+ * User: yk
+ * Date: 19-1-10
+ * Time: 2:38 pm
+ */
+
+defined('YB_DEBUG') or define('YB_DEBUG', true);
+
+include ( __DIR__ . '/vendor/autoload.php');
+
+try{
+    include ( __DIR__ . '/server/entry.php' );
+    $appData = include ( __DIR__ . '/bootstrap/app.php' );
+    $app = new \sap\App($appData);
+
+    $capsule = new Illuminate\Database\Capsule\Manager();
+    include ( __DIR__ . '/config/dbConfig.php' );
+    $capsule->bootEloquent();
+
+    $console = new \Inhere\Console\Application([
+        'name' => 'YB-JOB-APP',
+        'version' => '1.0.0',
+    ]);
+
+    //register closure
+    include ( __DIR__ . '/console/closureFiles/allClosure.php' );
+
+    //register command
+    include ( __DIR__ . '/config/command.php' );
+
+    //register controller
+    include ( __DIR__ . '/config/groups.php' );
+
+    $console->run();
+}catch (\Exception $e) {
+    //out error message
+    if(YB_DEBUG === true) {
+        fwrite(STDOUT, outError($e));
+    }
+}
+
+
+

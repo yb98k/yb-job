@@ -2,3 +2,5 @@
 *.log
 ybCrontab
 *.pid
+yb.sh
+srvConfig.php

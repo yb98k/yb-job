@@ -21,6 +21,10 @@ $ cd yb-job
 ```
 $ php init
 ```
+4、load vendor：
+```
+$ composer install
+```
 
 Go here, this project is init.
 

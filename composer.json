@@ -1,0 +1,23 @@
+{
+  "name": "yb-job",
+  "version": "1.0.0",
+  "require": {
+    "inhere/console": "^3.0",
+    "illuminate/database": "^5.7",
+    "predis/predis": "^1.1",
+    "atzcl/redis": "^0.1.1",
+    "symfony/cache": "^4.2",
+    "guzzlehttp/guzzle": "^6.3",
+    "yb98k/request": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\" : "console//",
+      "model\\" : "models//",
+      "sap\\" : "server//application//"
+    },
+    "files": [
+      "helpers/functions.php"
+    ]
+  }
+}

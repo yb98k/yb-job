@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0b658ef7af80c0313b3fab1989eae54",
+    "content-hash": "93842472845da750035f1a4bba3b984f",
     "packages": [
         {
             "name": "atzcl/redis",
@@ -1473,6 +1473,43 @@
                 "tool"
             ],
             "time": "2019-01-05T13:41:40+00:00"
+        },
+        {
+            "name": "yb98k/request",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yb98k/yb-request.git",
+                "reference": "e4ac521327a4720d053fd6fd7e1e3b54356331ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yb98k/yb-request/zipball/e4ac521327a4720d053fd6fd7e1e3b54356331ed",
+                "reference": "e4ac521327a4720d053fd6fd7e1e3b54356331ed",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Yb\\": "src//"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yk",
+                    "email": "yb98k@qq.com",
+                    "homepage": "https://github.com/yb98k"
+                }
+            ],
+            "description": "curl and fSockOpen",
+            "time": "2019-01-16T07:56:23+00:00"
         }
     ],
     "packages-dev": [],

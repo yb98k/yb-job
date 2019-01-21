@@ -8,7 +8,7 @@
 
 defined('YB_DEBUG') or define('YB_DEBUG', true);
 
-include ( __DIR__ . '/vendor/autoload.php');
+include ( __DIR__ . '/vendor/autoload.php' );
 
 try{
     include ( __DIR__ . '/server/entry.php' );

@@ -1,6 +1,8 @@
 {
   "name": "ybscript/yb-job",
+  "description": "The PHP Script Framework.",
   "version": "1.0.0",
+  "license": "MIT",
   "require": {
     "inhere/console": "^3.0",
     "illuminate/database": "^5.7",

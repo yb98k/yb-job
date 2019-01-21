@@ -68,7 +68,7 @@ $console->command('demo', function (\Inhere\Console\IO\Input $in, \Inhere\Consol
     $out->info('hello, this is a test command: ' . $cmd);
 }, 'this is message for the command');
 ```
-2、use Command(/console/commands/test/ExampleCommand.php):
+2、use command(/console/commands/test/ExampleCommand.php):
 ```
 class ExampleCommand extends Command
 {

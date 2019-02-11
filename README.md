@@ -7,23 +7,36 @@ You can register yourself component in "/bootstrap/app.php".Next,you can use $ap
 
 [1] Installation tutorial : 
 
+(1) first method:
+
 1、clone this project:
 ```
 $ git clone xxxxxxxxxxxxxxxxxxxx
 ```
-
-2、cd root path:
+2、load vendor：
+```
+$ composer install
+```
+3、cd root path:
 ```
 $ cd yb-job
 ```
 
-3、init project:
+4、init project:
 ```
 $ php init
 ```
-4、load vendor：
+
+(2) second method:
+
+1、create project:
 ```
-$ composer install
+$ composer create-project ybscript/yb-job your-project-name
+```
+2、init project:
+```
+$ cd your-project-name
+$ php init
 ```
 
 Go here, this project is init.

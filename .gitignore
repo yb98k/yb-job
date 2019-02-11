@@ -4,3 +4,4 @@ ybCrontab
 *.pid
 yb.sh
 srvConfig.php
+composer.lock
